@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<center>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../ico/favicon-32.ico">
+
+    <title>多媒体小站</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/cover.css" rel="stylesheet">
+		<link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
+  </head>
+
+  <body>
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+            	<a href="index.html">
+              <h1 class="masthead-brand">多媒体小站</h1>
+              </a>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li><a href="movie.html">电影</a></li>
+                  <li><a href="music.html">音乐</a></li>
+                  <li class="active"><a href="upload.html">投稿</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <br /><br /><br /><br /><br /><br />
+<div id="i_select_files">
+	</div>
+
+	<div id="i_stream_files_queue">
+	</div>
+	<button onclick="javascript:_t.upload();">开始上传</button>|<button onclick="javascript:_t.stop();">停止上传</button>|<button onclick="javascript:_t.cancel();">取消</button>
+	|<button onclick="javascript:_t.disable();">禁用文件选择</button>|<button onclick="javascript:_t.enable();">启用文件选择</button>
+	<br>
+	来自服务器的信息:
+	<div id="i_stream_message_container" class="stream-main-upload-box" style="overflow: auto;height:200px;">
+	</div>
+<br>
+
+
+<script type="text/javascript" src="../js/stream-v1.js"></script>
+<script type="text/javascript">
+
+	var config = {
+		browseFileId : "i_select_files", /** 选择文件的ID, 默认: i_select_files */
+		browseFileBtn : "<div>点击这里上传文件</div>", /** 显示选择文件的样式, 默认: `<div>请选择文件</div>` */
+		dragAndDropArea: "i_select_files", /** 拖拽上传区域，Id（字符类型"i_select_files"）或者DOM对象, 默认: `i_select_files` */
+		dragAndDropTips: "<span>或者把文件(文件夹)拖拽到这里</span>", /** 拖拽提示, 默认: `<span>把文件(文件夹)拖拽到这里</span>` */
+		filesQueueId : "i_stream_files_queue", /** 文件上传容器的ID, 默认: i_stream_files_queue */
+		filesQueueHeight : 200, /** 文件上传容器的高度（px）, 默认: 450 */
+		messagerId : "i_stream_message_container", /** 消息显示容器的ID, 默认: i_stream_message_container */
+		multipleFiles: true, /** 多个文件一起上传, 默认: false */
+		autoUploading: false, /** 选择文件后是否自动上传, 默认: true */
+
+//		},
+		swfURL : "swf/FlashUploader.swf", /** SWF文件的位置 */
+		tokenURL : "upload.php?action=tk", /** 根据文件名、大小等信息获取Token的URI（用于生成断点续传、跨域的令牌） */
+		frmUploadURL : "upload.php?action=fd;", /** Flash上传的URI */
+		uploadURL : "upload.php?action=up", /** HTML5上传的URI */
+
+	};
+	var _t = new Stream(config);
+</script>
+
+          
+          <div class="mastfoot">
+            <div class="inner">
+            </div>
+            </div>
+             <link href="../css/stream-v1.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.js"></script>
+  </body>
+  </center>
+</html>
